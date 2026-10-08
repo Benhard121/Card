@@ -1524,3 +1524,216 @@ body::after {
     }
 }
 
+
+/* ==================================================
+   PAGE 4 — KADO BUNGA + FOTO ARA (tombol 🎁)
+================================================== */
+
+/* 🎁 jadi tombol */
+.gift {
+    cursor: pointer;
+}
+
+.gift:focus-visible {
+    outline: 3px dashed var(--pink-main);
+    outline-offset: 4px;
+    border-radius: 14px;
+}
+
+.gift-hint {
+    position: absolute;
+    left: 50%;
+    top: 116%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    background: linear-gradient(135deg, #ffd76a, #ff9ecb);
+    color: #7a3050;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 6px 14px rgba(255, 150, 120, 0.4);
+    animation: giftHintPulse 2s ease-in-out infinite;
+    z-index: 4;
+}
+
+@keyframes giftHintPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50%      { transform: translateX(-50%) scale(1.08); }
+}
+
+/* --- kartu kado --- */
+.gift-card {
+    position: relative;
+    width: min(560px, 94vw);
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: 30px;
+    background: linear-gradient(160deg, #ffffff, #ffe4ef);
+    box-shadow: 0 24px 60px rgba(74, 74, 74, 0.15);
+    border: 3px solid rgba(255, 180, 120, 0.55);
+    outline: 2px dashed rgba(255, 200, 160, 0.6);
+    outline-offset: 6px;
+    font-family: var(--font-body);
+    text-align: center;
+    padding: 34px 30px 30px;
+    animation: popIn 0.65s ease both;
+    scrollbar-width: thin;
+}
+
+.gift-title {
+    font-family: var(--font-display);
+    color: var(--pink-dark);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 10px;
+    text-shadow: 0 0 14px rgba(255, 122, 162, 0.3);
+    animation: titleShine 3s ease-in-out infinite;
+}
+
+.gift-sub {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0 auto 12px;
+    max-width: 38ch;
+}
+
+/* hiasan pojok kartu kado */
+.gift-deco {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.9;
+    pointer-events: none;
+    animation: cardDecoBob 3s ease-in-out infinite;
+}
+
+.gift-deco.d1 { top: -16px; right: -12px; font-size: 36px; }
+.gift-deco.d2 { bottom: -14px; left: -12px; font-size: 28px; animation-delay: 1.2s; }
+
+/* --- ember/vas berisi bunga mawar --- */
+.flower-bucket {
+    position: relative;
+    width: 230px;
+    height: 190px;
+    margin: 4px auto 10px;
+}
+
+.flower-stem {
+    position: absolute;
+    top: 0;
+    width: 26px;
+    text-align: center;
+    font-size: 34px;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.12));
+    animation: flowerBob 3s ease-in-out infinite;
+}
+
+.flower-stem::after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 92px;
+    margin: -4px auto 0;
+    background: linear-gradient(#6fbf6f, #7cce7c);
+    border-radius: 2px;
+}
+
+.flower-stem.s1 { left: 30px; }
+.flower-stem.s2 { left: 96px; font-size: 42px; animation-delay: 0.5s; }
+.flower-stem.s3 { left: 162px; animation-delay: 1s; }
+
+.bucket {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 132px;
+    height: 88px;
+    background: linear-gradient(180deg, #ffffff, #ffd9e6);
+    border: 2.5px solid #ff8fb2;
+    border-radius: 6px 6px 42px 42px;
+    box-shadow:
+        inset 0 -14px 0 rgba(255, 120, 165, 0.18),
+        0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.bucket-highlight {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    opacity: 0.9;
+}
+
+@keyframes flowerBob {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50%      { transform: translateY(-7px) rotate(6deg); }
+}
+
+/* --- galeri foto ala polaroid --- */
+.photo-wall {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.photo {
+    margin: 0;
+    padding: 6px 6px 8px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.photo-img {
+    position: relative;
+    aspect-ratio: 3 / 3.1;
+    overflow: hidden;
+    border-radius: 12px;
+    background: radial-gradient(circle at 50% 30%, #fff, #ffe0ed);
+}
+
+.photo-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-slot {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    pointer-events: none;
+}
+
+.photo-cap {
+    display: block;
+    text-align: center;
+    font-size: 0.72rem;
+    color: #b48497;
+    padding: 6px 2px 0;
+    font-family: var(--font-body);
+}
+
+.gift-card .replay-btn {
+    margin-top: 26px;
+}
+
+/* ...di layar kecil, galeri jadi 2 kolom */
+@media (max-width: 520px) {
+    .photo-wall {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

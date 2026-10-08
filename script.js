@@ -103,6 +103,12 @@ function showEnvelope() {
         .classList
         .remove("active");
 
+    if (stageGift) {
+        stageGift
+            .classList
+            .remove("active");
+    }
+
     typedText.textContent = "";
 
     clearInterval(
@@ -232,6 +238,78 @@ backBtn.addEventListener(
     "click",
     showEnvelope
 );
+
+
+/* ========================================
+   HALAMAN EMPAT (KADO BUNGA + FOTO)
+======================================== */
+
+const stageGift =
+    document.getElementById(
+        "stageGift"
+    );
+
+const openGift =
+    document.getElementById(
+        "openGift"
+    );
+
+const giftBack =
+    document.getElementById(
+        "giftBack"
+    );
+
+function openGiftPage() {
+
+    stageSurprise
+        .classList
+        .remove("active");
+
+    stageGift
+        .classList
+        .add("active");
+
+    startMusic();
+
+    burstConfetti();
+}
+
+function showSurprise() {
+
+    stageGift
+        .classList
+        .remove("active");
+
+    stageSurprise
+        .classList
+        .add("active");
+}
+
+openGift &&
+    openGift.addEventListener(
+        "click",
+        openGiftPage
+    );
+
+openGift &&
+    openGift.addEventListener(
+        "keydown",
+        (event) => {
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+                event.preventDefault();
+                openGiftPage();
+            }
+        }
+    );
+
+giftBack &&
+    giftBack.addEventListener(
+        "click",
+        showSurprise
+    );
 
 
 /* ========================================
