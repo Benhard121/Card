@@ -1009,3 +1009,41 @@ body::before {
 .surprise-card .replay-btn {
     margin-top: 24px;
 }
+
+/* ==================================================
+   TOMBOL MUSIK 🎵
+================================================== */
+
+.music-btn {
+    margin-top: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffb3c6, #ff7aa2);
+    color: #fff;
+    font-family: var(--font-ui, "Quicksand"), sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(255, 122, 162, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(255, 122, 162, 0.5);
+}
+
+.music-btn:active {
+    transform: translateY(0);
+}
+
+.music-btn.playing {
+    background: linear-gradient(135deg, #ff7aa2, #ff4f7d);
+    box-shadow: 0 8px 20px rgba(255, 79, 125, 0.5);
+}
+
+.music-btn.playing::before {
+    content: "♪♪ ";
+}
+

@@ -59,6 +59,21 @@ const particles =
         "particles"
     );
 
+const bgMusic =
+    document.getElementById(
+        "bgMusic"
+    );
+
+const musicBtn =
+    document.getElementById(
+        "musicBtn"
+    );
+
+const musicBtnSurprise =
+    document.getElementById(
+        "musicBtnSurprise"
+    );
+
 
 let typingTimer = null;
 
@@ -146,6 +161,8 @@ function openMessage() {
 
     typeMessage();
 
+    startMusic();
+
     burstConfetti();
 }
 
@@ -159,6 +176,8 @@ function openSurprise() {
     stageSurprise
         .classList
         .add("active");
+
+    startMusic();
 
     burstConfetti();
 }
@@ -206,6 +225,76 @@ backBtn.addEventListener(
     "click",
     showEnvelope
 );
+
+
+/* ========================================
+   MUSIK 🎵
+======================================== */
+
+function updateMusicBtns(playing) {
+
+    const label =
+        playing ? "⏸ Pause" : "🎵 Musik";
+
+    [musicBtn, musicBtnSurprise].forEach(
+        (btn) => {
+
+            if (!btn) return;
+
+            btn
+                .classList
+                .toggle(
+                    "playing",
+                    playing
+                );
+
+            btn.textContent = label;
+        }
+    );
+}
+
+function startMusic() {
+
+    if (bgMusic.paused) {
+
+        bgMusic
+            .play()
+            .then(
+                () => updateMusicBtns(true)
+            )
+            .catch(
+                () => updateMusicBtns(false)
+            );
+    } else {
+
+        updateMusicBtns(true);
+    }
+}
+
+function toggleMusic() {
+
+    if (bgMusic.paused) {
+
+        startMusic();
+    } else {
+
+        bgMusic.pause();
+
+        updateMusicBtns(false);
+    }
+}
+
+musicBtn &&
+    musicBtn.addEventListener(
+        "click",
+        toggleMusic
+    );
+
+musicBtnSurprise &&
+    musicBtnSurprise.addEventListener(
+        "click",
+        toggleMusic
+    );
 
 
 /* ========================================
