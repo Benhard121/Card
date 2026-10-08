@@ -1,13 +1,13 @@
 const message = `Hallo, Ara 💗
 
-Aku cuma mau bilang,
-semoga hari-harimu selalu dipenuhi hal-hal baik,
-senyum yang tulus, dan alasan untuk bahagia.
+I just want to say,
+may your days always be filled with good things,
+sincere smiles, and reasons to be happy.
 
-Kalau suatu hari kamu merasa lelah,
-jangan lupa istirahat, ya.
-Kamu nggak harus selalu kuat setiap waktu.
-Tetap jaga diri dan jangan lupa bahagia.
+If you ever feel tired,
+don't forget to rest.
+You don't have to be strong all the time.
+Take care of yourself, and don't forget to be happy.
 
 Aku nggak tahu apa yang akan terjadi ke depannya,
 tapi diam-diam aku berharap
