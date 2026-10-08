@@ -2053,11 +2053,11 @@ body::after {
     opacity: 0.95;
 }
 
-/* panah kecil penunjuk 🎁 */
+/* panah kecil penunjuk 🎁 (di atas kotak hadiah, menunjuk ke kotak bukan ke label) */
 .gift-arrow {
     position: absolute;
     left: 50%;
-    top: 86%;
+    top: 74%;
     transform: translateX(-50%);
     font-size: 26px;
     z-index: 4;
@@ -2066,8 +2066,8 @@ body::after {
 }
 
 @keyframes arrowNudge {
-    0%, 100% { transform: translate(-50%, -12px) rotate(-8deg); opacity: 0.45; }
-    50%      { transform: translate(-50%, 14px)   rotate(8deg);  opacity: 1; }
+    0%, 100% { transform: translate(-50%, -7px) rotate(-7deg); opacity: 0.5; }
+    50%      { transform: translate(-50%, 9px)   rotate(7deg);  opacity: 1; }
 }
 
 /* ==================================================
@@ -2156,6 +2156,12 @@ body.lb-open {
 }
 .lightbox.open .lb-frame {
     transform: scale(1);
+    animation: lbBreath 3.2s ease-in-out infinite;
+}
+
+@keyframes lbBreath {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50%      { transform: scale(1.012) translateY(-5px); }
 }
 #lbImg {
     display: block;
@@ -2170,8 +2176,9 @@ body.lb-open {
     text-align: center;
     margin-top: 12px;
     font-family: var(--font-body);
+    font-style: italic;
     font-weight: 600;
-    color: #b0547e;
+    color: #a04a76;
     font-size: 1rem;
 }
 
