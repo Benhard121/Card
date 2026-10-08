@@ -1440,3 +1440,87 @@ body::after {
     padding: 20px;
 }
 
+
+/* ==================================================
+   HIASAN DI PERBANYAK + BACKGROUND BIAR TIDAK KOSONG
+================================================== */
+
+/* background: tambah bercak cahaya hangat biar tak sepi */
+body::after {
+    background:
+        radial-gradient(circle at 8% 14%, rgba(255, 255, 255, 0.55), transparent 34%),
+        radial-gradient(circle at 92% 20%, rgba(255, 196, 120, 0.3), transparent 38%),
+        radial-gradient(circle at 6% 82%, rgba(255, 186, 214, 0.45), transparent 40%),
+        radial-gradient(circle at 94% 80%, rgba(255, 235, 170, 0.28), transparent 42%),
+        radial-gradient(circle at 50% 46%, rgba(255, 255, 255, 0.42), transparent 55%);
+}
+
+/* hiasan emoji mengambang di tepi viewport */
+.bg-deco {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bg-deco span {
+    position: absolute;
+    opacity: 0.55;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.08));
+    animation: decoFloat 5s ease-in-out infinite;
+}
+
+.bg-deco .bd1 { top: 6%;   left: 6%;   font-size: 34px; }
+.bg-deco .bd2 { top: 16%;  right: 8%;  font-size: 26px; animation-delay: 0.8s; }
+.bg-deco .bd3 { top: 46%;  left: 4%;   font-size: 22px; animation-delay: 1.4s; }
+.bg-deco .bd4 { bottom: 10%; right: 6%; font-size: 32px; animation-delay: 0.4s; }
+.bg-deco .bd5 { bottom: 20%; left: 9%; font-size: 28px; animation-delay: 2s; }
+.bg-deco .bd6 { top: 52%;  right: 4%;  font-size: 24px; animation-delay: 1.8s; }
+
+@keyframes decoFloat {
+    0%, 100% { transform: translateY(0) rotate(-10deg); }
+    50%      { transform: translateY(-16px) rotate(10deg); }
+}
+
+/* hiasan ekstra di dalam adegan boneka */
+.surprise-heart.h5 { top: 2%;   left: 47%; font-size: 22px; animation-delay: 0.3s; }
+.surprise-heart.h6 { bottom: 26%; left: 5%; font-size: 20px; animation-delay: 2s; }
+
+/* hiasan pojok kartu kejutan */
+.surprise-card { position: relative; }
+
+.card-deco {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.9;
+    pointer-events: none;
+    animation: cardDecoBob 3s ease-in-out infinite;
+}
+
+.card-deco.d1 {
+    top: -16px;
+    left: -14px;
+    font-size: 36px;
+}
+
+.card-deco.d2 {
+    bottom: -14px;
+    right: -10px;
+    font-size: 28px;
+    animation-delay: 1.2s;
+}
+
+@keyframes cardDecoBob {
+    0%, 100% { transform: rotate(-12deg) scale(1); }
+    50%      { transform: rotate(12deg)  scale(1.15); }
+}
+
+/* di layar kecil, sembunyikan sebagian hiasan tepi biar tetap rapi */
+@media (max-width: 520px) {
+    .bg-deco .bd2,
+    .bg-deco .bd3,
+    .bg-deco .bd6 {
+        display: none;
+    }
+}
+
