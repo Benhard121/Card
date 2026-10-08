@@ -64,14 +64,9 @@ const bgMusic =
         "bgMusic"
     );
 
-const musicBtn =
+const musicToggle =
     document.getElementById(
-        "musicBtn"
-    );
-
-const musicBtnSurprise =
-    document.getElementById(
-        "musicBtnSurprise"
+        "musicToggle"
     );
 
 
@@ -233,24 +228,22 @@ backBtn.addEventListener(
 
 function updateMusicBtns(playing) {
 
-    const label =
-        playing ? "⏸ Pause" : "🎵 Musik";
+    if (!musicToggle) return;
 
-    [musicBtn, musicBtnSurprise].forEach(
-        (btn) => {
+    musicToggle
+        .classList
+        .toggle(
+            "playing",
+            playing
+        );
 
-            if (!btn) return;
+    musicToggle.textContent =
+        playing ? "⏸" : "🎵";
 
-            btn
-                .classList
-                .toggle(
-                    "playing",
-                    playing
-                );
-
-            btn.textContent = label;
-        }
-    );
+    musicToggle.title =
+        playing
+            ? "Jeda musik"
+            : "Putar musik";
 }
 
 function startMusic() {
@@ -284,14 +277,8 @@ function toggleMusic() {
     }
 }
 
-musicBtn &&
-    musicBtn.addEventListener(
-        "click",
-        toggleMusic
-    );
-
-musicBtnSurprise &&
-    musicBtnSurprise.addEventListener(
+musicToggle &&
+    musicToggle.addEventListener(
         "click",
         toggleMusic
     );

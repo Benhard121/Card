@@ -21,6 +21,9 @@
     <!-- Background particles -->
     <div id="particles"></div>
 
+    <!-- Objek camber alarg -->
+    <div class="ambient" aria-hidden="true"></div>
+
     <!-- Musik latar -->
     <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
 
@@ -29,6 +32,13 @@
 
         <!-- Garlands de luces -->
         <div id="bunting" aria-hidden="true"></div>
+
+        <!-- Balon naik-naik -->
+        <div class="balloons" aria-hidden="true">
+            <span class="balloon b1">🎈</span>
+            <span class="balloon b2">🎈</span>
+            <span class="balloon b3">🎈</span>
+        </div>
 
         <div
             class="envelope-wrapper"
@@ -65,6 +75,9 @@
 
         <section class="letter-card">
 
+            <span class="card-flower tl" aria-hidden="true">🌷</span>
+            <span class="card-flower br" aria-hidden="true">🌷</span>
+
             <button
                 id="closeLetter"
                 class="close-btn"
@@ -97,14 +110,7 @@
                 Buka Lagi 💌
             </button>
 
-            <button
-                id="musicBtn"
-                class="music-btn"
-            >
-                🎵 Musik
-            </button>
-
-        </section>
+            </section>
 
     </main>
 
@@ -113,6 +119,11 @@
     <main id="stageSurprise" class="stage">
 
         <section class="surprise-card">
+
+            <span class="card-flower tl" aria-hidden="true">🌷</span>
+            <span class="card-flower br" aria-hidden="true">🌷</span>
+            <span class="card-sparkle s1" aria-hidden="true">✧</span>
+            <span class="card-sparkle s2" aria-hidden="true">✧</span>
 
             <div class="surprise" aria-hidden="true">
 
@@ -154,17 +165,20 @@
                 Balik 💗
             </button>
 
-            <button
-                id="musicBtnSurprise"
-                class="music-btn"
-            >
-                🎵 Musik
-            </button>
-
-        </section>
+            </section>
 
     </main>
 
+
+    <!-- Tombol musik kecil di pojok -->
+    <button
+        id="musicToggle"
+        class="music-toggle"
+        aria-label="Putar atau jeda musik"
+        title="Putar musik"
+    >
+        🎵
+    </button>
 
     <script src="script.js"></script>
 
