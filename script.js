@@ -313,6 +313,57 @@ giftBack &&
 
 
 /* ========================================
+   KELOPAK BUNGA JATUH (HALAMAN KADO)
+======================================== */
+
+const petalsBox =
+    document.querySelector(
+        "#stageGift .petals"
+    );
+
+const PETAL_EMOJI = [
+    "🌸", "🌷", "🌺", "🍃", "✿", "🌹", "💮"
+];
+
+function createPetal() {
+
+    if (!petalsBox) return;
+
+    const petal =
+        document.createElement(
+            "span"
+        );
+
+    petal.className = "petal";
+
+    petal.textContent =
+        PETAL_EMOJI[
+            Math.floor(
+                Math.random() * PETAL_EMOJI.length
+            )
+        ];
+
+    petal.style.left =
+        `${Math.random() * 100}%`;
+
+    petal.style.fontSize =
+        `${12 + Math.random() * 16}px`;
+
+    petal.style.animationDuration =
+        `${6 + Math.random() * 6}s`;
+
+    petal.style.animationDelay =
+        `${Math.random() * -9}s`;
+
+    petalsBox.appendChild(petal);
+}
+
+for (let i = 0; i < 26; i++) {
+    createPetal();
+}
+
+
+/* ========================================
    MUSIK 🎵
 ======================================== */
 

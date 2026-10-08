@@ -1,6 +1,9 @@
 Tempat foto Ara ada di sini! 📸
 
-CARA PAKAI:
+STATUS: 6 foto sudah terpasang ✅
+(ara-1.jpg sampai ara-6.jpg)
+
+CARA GANTI / TAMBAH FOTO:
 1. Masukkan foto ke folder "photos" ini.
 2. Nama file HARUS sesuai:
    - ara-1.jpg
@@ -10,6 +13,9 @@ CARA PAKAI:
    - ara-5.jpg
    - ara-6.jpg
 
-Foto bakal otomatis tampil di Halaman 4 (Kado Bunga + Foto Ara).
+Foto otomatis tampil di Halaman 4 (Kado Bunga + Foto Ara).
 Ukuran bebas (tegak/landscape) — nanti otomatis dirapikan.
-Kalau mau pakai nama lain, sesuaikan juga di file index.html.
+
+Kalimat di bawah tiap foto bisa diubah di index.html
+(cari: class="photo-cap").
+Kalau mau pakai nama file lain, sesuaikan juga di index.html.
