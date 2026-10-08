@@ -1,10 +1,14 @@
 :root {
-    --bg-color: #f7ebe1;
-    --pink-main: #ff85a1;
-    --pink-light: #fbc4d0;
+    --bg-top: #ffdcea;
+    --bg-bottom: #ffbfd8;
+    --pink-main: #ff7aa2;
+    --pink-light: #ffc9db;
     --pink-dark: #e05275;
-    --window-bg: #fff5f7;
-    --text-color: #4a4a4a;
+    --window-bg: #fff6f9;
+    --text-color: #5a4a55;
+
+    --font-display: "Baloo 2", "Comic Sans MS", "Segoe UI", sans-serif;
+    --font-body: "Quicksand", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -13,11 +17,7 @@
     padding: 0;
 
     font-family:
-        "Segoe UI",
-        Tahoma,
-        Geneva,
-        Verdana,
-        sans-serif;
+        var(--font-body);
 }
 
 html,
@@ -27,7 +27,12 @@ body {
 }
 
 body {
-    background-color: var(--bg-color);
+    background:
+        linear-gradient(
+            135deg,
+            var(--bg-top),
+            var(--bg-bottom)
+        );
 
     color: var(--text-color);
 
@@ -159,24 +164,38 @@ body {
     color:
         var(--pink-dark);
 
-    font-weight: bold;
+    font-family:
+        var(--font-display);
 
-    background: white;
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #ffe4ef
+        );
 
     padding:
-        8px 20px;
+        10px 24px;
 
     border-radius:
-        20px;
+        999px;
 
     box-shadow:
-        0 4px 10px
+        0 6px 14px
         rgba(
-            0,
-            0,
-            0,
-            0.05
+            255,
+            122,
+            162,
+            0.15
         );
+
+    animation:
+        bob
+        2.6s
+        ease-in-out
+        infinite;
 }
 
 .envelope {
@@ -188,10 +207,14 @@ body {
     height: 180px;
 
     background:
-        var(--pink-light);
+        linear-gradient(
+            135deg,
+            #ffd2e3,
+            var(--pink-light)
+        );
 
     border-radius:
-        0 0 10px 10px;
+        0 0 14px 14px;
 
     box-shadow:
         0 10px 30px
@@ -199,10 +222,16 @@ body {
             0,
             0,
             0,
-            0.1
+            0.10
         );
 
     overflow: hidden;
+
+    animation:
+        breathe
+        3s
+        ease-in-out
+        infinite;
 }
 
 
@@ -327,6 +356,12 @@ body {
 
     z-index: 4;
 
+    animation:
+        heartBeat
+        1.6s
+        ease-in-out
+        infinite;
+
     color: white;
 
     font-size: 42px;
@@ -412,9 +447,15 @@ body {
 
 .letter-icon {
 
-    font-size: 42px;
+    font-size: 46px;
 
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+
+    animation:
+        floatHeart
+        2.4s
+        ease-in-out
+        infinite;
 }
 
 .letter-card h1 {
@@ -422,14 +463,37 @@ body {
     color:
         var(--pink-dark);
 
+    font-family:
+        var(--font-display);
+
     font-size:
         clamp(
-            1.8rem,
+            1.9rem,
             4vw,
-            2.6rem
+            2.7rem
         );
 
-    margin-bottom: 24px;
+    margin-bottom: 26px;
+}
+
+/* Titre degrade (lebih cute) di browser yang support */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+
+    .letter-card h1 {
+
+        background:
+            linear-gradient(
+                90deg,
+                #ff6f9e,
+                #ef5b88,
+                #ff6f9e
+            );
+
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        color: transparent;
+    }
 }
 
 .message {
@@ -472,7 +536,11 @@ body {
         11px 20px;
 
     background:
-        var(--pink-main);
+        linear-gradient(
+            135deg,
+            var(--pink-main),
+            var(--pink-dark)
+        );
 
     color: white;
 
@@ -492,10 +560,30 @@ body {
 .replay-btn:hover {
 
     transform:
-        translateY(-2px);
+        translateY(-3px)
+        scale(1.05);
 
     background:
-        var(--pink-dark);
+        linear-gradient(
+            135deg,
+            var(--pink-main),
+            var(--pink-dark)
+        );
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            255,
+            122,
+            162,
+            0.35
+        );
+}
+
+.replay-btn:active,
+.close-btn:active {
+
+    transform: scale(0.94);
 }
 
 
@@ -560,4 +648,209 @@ body {
             42px 22px 26px;
     }
 
+}
+/* ========================================
+   TOUCHES LUCU EXTRA ✨
+======================================== */
+
+/* Glowing soft blush behind everything */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(255, 214, 235, 0.5), transparent 45%),
+        radial-gradient(circle at 82% 74%, rgba(255, 188, 214, 0.42), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Cute bob for the pill */
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+
+/* Breathing shadow under the envelope */
+@keyframes breathe {
+    0%, 100% { box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10); }
+    50%      { box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16); }
+}
+
+/* Heartbeat */
+@keyframes heartBeat {
+    0%, 100% { transform: translate(-50%, -40%) scale(1); }
+    12%      { transform: translate(-50%, -40%) scale(1.18); }
+    24%      { transform: translate(-50%, -40%) scale(0.95); }
+    36%      { transform: translate(-50%, -40%) scale(1.12); }
+}
+
+/* Floating heart on the letter */
+@keyframes floatHeart {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-7px) scale(1.1); }
+}
+
+/* Wax seal pulse */
+@keyframes sealPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50%      { transform: translateX(-50%) scale(1.08); }
+}
+
+/* Wax seal sitting on the flap */
+.wax-seal {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 32%, #ff77a4, #ef5b88 62%, #cf4a6f);
+    box-shadow:
+        0 5px 14px rgba(199, 68, 104, 0.35),
+        inset 0 -3px 6px rgba(120, 30, 60, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    z-index: 6;
+    animation: sealPulse 3s ease-in-out infinite;
+}
+
+/* Button depth + focus rings for keyboard users */
+.replay-btn {
+    box-shadow: 0 8px 18px rgba(255, 122, 162, 0.25);
+}
+
+.close-btn {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #d33f64;
+    transform: rotate(90deg);
+}
+
+.replay-btn:focus-visible,
+.close-btn:focus-visible,
+.envelope-wrapper:focus-visible {
+    outline: 3px solid var(--pink-main);
+    outline-offset: 3px;
+}
+
+.message {
+    font-size: 1.08rem;
+}
+/* ========================================
+   EFEKTA "WAW" ✨✨
+======================================== */
+
+/* Garlands de luces */
+#bunting {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.bulb {
+    width: 2px;
+    height: 24px;
+    background: rgba(255, 216, 235, 0.55);
+    transform-origin: 50% 0;
+    animation: sway 3.4s ease-in-out infinite;
+}
+
+.bulb::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -2px);
+    width: 14px;
+    height: 18px;
+    border-radius: 60% 60% 45% 45%;
+    background: radial-gradient(circle at 50% 30%, #fff, #ffdcae 40%, rgba(255, 150, 90, 0.95));
+    box-shadow: 0 0 14px rgba(255, 185, 120, 0.85);
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-7deg); }
+    50%      { transform: rotate(7deg); }
+}
+
+/* Kaca shine i hun amplop */
+.envelope::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 100%;
+    background: linear-gradient(115deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
+    z-index: 5;
+    pointer-events: none;
+    animation: sheen 3.6s ease-in-out infinite;
+}
+
+@keyframes sheen {
+    0%, 100% { transform: translateX(-40px); opacity: 0; }
+    12%      { opacity: 1; }
+    55%      { transform: translateX(250px); opacity: 1; }
+    68%      { opacity: 0; }
+}
+
+/* Confetti burst */
+.confetti {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 9px;
+    height: 14px;
+    animation: confettiBurst 1.4s ease-out forwards;
+}
+
+@keyframes confettiBurst {
+    0%   { opacity: 0; transform: translate(-50%, -50%) rotate(0) scale(0.3); }
+    8%   { opacity: 1; transform: translate(-50%, -50%) rotate(0) scale(1); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(0.9); }
+}
+
+/* Sparkle trail sa mouse */
+.sparkle {
+    position: absolute;
+    pointer-events: none;
+    color: #ffd9b0;
+    text-shadow: 0 0 8px rgba(255, 190, 120, 0.9), 0 0 16px rgba(255, 120, 170, 0.6);
+    animation: sparkleFade 0.9s ease-out forwards;
+}
+
+@keyframes sparkleFade {
+    0%   { opacity: 0; transform: scale(0.3); }
+    15%  { opacity: 1; transform: scale(1.15); }
+    100% { opacity: 0; transform: scale(0.4) translateY(-20px); }
+}
+
+/* Rainbow button halakar */
+.replay-btn {
+    background: linear-gradient(90deg, #ff9ecb, #ffb86b, #ffd166, #a9e8a0, #7fd8f0, #c58bff, #ff9ecb);
+    background-size: 180% 100%;
+    animation: rainbowShift 3s linear infinite;
+}
+
+.replay-btn:hover {
+    background: linear-gradient(90deg, #ff9ecb, #ffb86b, #ffd166, #a9e8a0, #7fd8f0, #c58bff, #ff9ecb);
+    animation-duration: 0.9s;
+}
+
+@keyframes rainbowShift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 180% 50%; }
 }

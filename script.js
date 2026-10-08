@@ -72,6 +72,8 @@ function showEnvelope() {
     clearInterval(
         typingTimer
     );
+
+    burstConfetti();
 }
 
 
@@ -129,6 +131,8 @@ function openMessage() {
         .add("active");
 
     typeMessage();
+
+    burstConfetti();
 }
 
 
@@ -185,10 +189,16 @@ function createParticle() {
     particle.className =
         "particle";
 
+    const PARTICLE_EMOJI = [
+        "♥", "♡", "✦", "💖", "💗", "🌸", "✿", "⭐", "💕"
+    ];
+
     particle.textContent =
-        Math.random() > 0.25
-            ? "♥"
-            : "✦";
+        PARTICLE_EMOJI[
+            Math.floor(
+                Math.random() * PARTICLE_EMOJI.length
+            )
+        ];
 
 
     particle.style.left =
@@ -238,3 +248,106 @@ for (
         i * 220
     );
 }
+
+
+/* ========================================
+   EFEKTA "WAW" ✨
+======================================== */
+
+/* CONFETTI BURST */
+function burstConfetti() {
+
+    const colors = [
+        "#ff7aa2", "#ffb3c6", "#ffd166",
+        "#ff9ecb", "#a9f0d0", "#ffc3a0", "#c7f2ff"
+    ];
+
+    for (let i = 0; i < 28; i++) {
+
+        const c = document.createElement("div");
+        c.className = "confetti";
+
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 130 + Math.random() * 240;
+
+        c.style.setProperty("--dx", `${Math.cos(angle) * dist}px`);
+        c.style.setProperty("--dy", `${Math.sin(angle) * dist}px`);
+        c.style.setProperty("--rot", `${Math.random() * 720 - 360}deg`);
+
+        c.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        particles.appendChild(c);
+
+        setTimeout(() => c.remove(), 1600);
+    }
+}
+
+
+/* SPARKLE TRAIL SA MOUZE */
+function addSparkle(x, y) {
+
+    const sparkle = document.createElement("span");
+    sparkle.className = "sparkle";
+
+    sparkle.style.left = `${x}px`;
+    sparkle.style.top = `${y}px`;
+
+    sparkle.textContent =
+        ["✦", "✧", "✩", "❀", "✨", "⋅"][Math.floor(Math.random() * 6)];
+
+    particles.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 950);
+}
+
+let lastSparkle = 0;
+
+document.addEventListener(
+    "mousemove",
+    (event) => {
+
+        const now = Date.now();
+
+        if (now - lastSparkle < 60) return;
+
+        lastSparkle = now;
+
+        addSparkle(
+            event.clientX + (Math.random() * 20 - 10),
+            event.clientY + (Math.random() * 10 - 5)
+        );
+    }
+);
+
+
+/* GARLANDS DE LUCES */
+function drawBunting() {
+
+    const bunting = document.getElementById("bunting");
+
+    if (!bunting) return;
+
+    bunting.innerHTML = "";
+
+    const count =
+        Math.max(8, Math.floor(window.innerWidth / 70));
+
+    for (let i = 0; i < count; i++) {
+
+        const b = document.createElement("span");
+        b.className = "bulb";
+        b.style.animationDelay = `${(i % 8) * 0.15}s`;
+        b.style.animationDuration = `${3 + (i % 5) * 0.25}s`;
+
+        bunting.appendChild(b);
+    }
+}
+
+drawBunting();
+
+window.addEventListener(
+    "resize",
+    drawBunting
+);
+        
