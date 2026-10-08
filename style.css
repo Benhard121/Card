@@ -1342,3 +1342,101 @@ body::before {
     50%      { opacity: 1;   transform: scale(1.3) rotate(180deg); }
 }
 
+
+/* ==================================================
+   RAPIKAN + BORDER DEKORATIF & BACKGROUND TIDAK KOSONG
+================================================== */
+
+/* --- background: pola titik + cahaya lembut (biar tak kosong) --- */
+body {
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.32) 2.2px, transparent 2.6px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.18) 1.4px, transparent 1.8px);
+    background-size: 46px 46px, 23px 23px;
+    background-position: 0 0, 11px 11px;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 10% 16%, rgba(255, 255, 255, 0.55), transparent 38%),
+        radial-gradient(circle at 90% 22%, rgba(255, 186, 214, 0.5), transparent 42%),
+        radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.45), transparent 46%);
+}
+
+/* --- bingkai dekoratif sekeliling viewport --- */
+.page-frame {
+    position: fixed;
+    inset: 14px;
+    z-index: 6;
+    pointer-events: none;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 26px;
+    outline: 2px dashed rgba(255, 255, 255, 0.35);
+    outline-offset: 6px;
+    box-shadow:
+        inset 0 0 24px rgba(255, 255, 255, 0.18),
+        0 0 30px rgba(255, 150, 190, 0.12);
+}
+
+/* --- border berlapis pada kartu surat & kartu kejutan --- */
+.letter-card {
+    border: 2.5px solid rgba(255, 150, 200, 0.55);
+    outline: 2px dashed rgba(255, 195, 220, 0.65);
+    outline-offset: 6px;
+}
+
+.surprise-card {
+    outline: 2px dashed rgba(255, 205, 160, 0.65);
+    outline-offset: 6px;
+}
+
+/* --- lingkar border pada amplop biar terpusat & rapi --- */
+.envelope-wrapper {
+    position: relative;
+}
+
+.envelope-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(88vw, 390px);
+    aspect-ratio: 1 / 1;
+    border: 3px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.envelope-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(80vw, 340px);
+    aspect-ratio: 1 / 1;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* --- pojok hiasan kecil pada kartu (terpusat & rapi) --- */
+.stage {
+    padding: 20px;
+}
+
