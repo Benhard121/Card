@@ -1841,6 +1841,9 @@ body::after {
 .flower-leaf.l1 { left: 60px;  top: 30px; transform: rotate(-40deg); }
 .flower-leaf.l2 { left: 176px; top: 26px; transform: rotate(38deg); animation-delay: 1.2s; }
 .flower-leaf.l3 { left: 112px; top: 46px; transform: rotate(-12deg); font-size: 20px; animation-delay: 0.6s; }
+.flower-leaf.l4 { left: 84px;  top: 30px; transform: rotate(-24deg); font-size: 18px; animation-delay: 0.4s; }
+.flower-leaf.l5 { left: 136px; top: 34px; transform: rotate(22deg);  font-size: 18px; animation-delay: 1.3s; }
+.flower-leaf.l6 { left: 106px; top: 52px; transform: rotate(-6deg);  font-size: 22px; animation-delay: 0.8s; }
 
 @keyframes leafSway {
     0%, 100% { filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); }
@@ -1989,6 +1992,15 @@ body::after {
     filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.1)) saturate(0.8);
 }
 
+/* tangkai tambahan → buket makin padat & rapi seperti buket sungguhan (3 lapis) */
+.flower-stem.s10 { left: 22px;  top: -2px;  --bloom: 24px; --stem: 100px; z-index: 1; animation-delay: 0.5s; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1)) saturate(0.8); }
+.flower-stem.s11 { left: 202px; top: -2px;  --bloom: 24px; --stem: 100px; z-index: 1; animation-delay: 0.9s; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1)) saturate(0.8); }
+.flower-stem.s12 { left: 64px;  top: -8px;  --bloom: 30px; --stem: 98px;  z-index: 2; animation-delay: 1.4s; }
+.flower-stem.s13 { left: 158px; top: -8px;  --bloom: 30px; --stem: 98px;  z-index: 2; animation-delay: 0.2s; }
+.flower-stem.s14 { left: 110px; top: -24px; --bloom: 52px; --stem: 98px;  z-index: 4; animation-delay: 0.6s; }
+.flower-stem.s15 { left: 88px;  top: -14px; --bloom: 36px; --stem: 96px;  z-index: 5; animation-delay: 1.1s; }
+.flower-stem.s16 { left: 148px; top: -14px; --bloom: 36px; --stem: 96px;  z-index: 6; animation-delay: 0.3s; }
+
 /* kilau + hati kecil di antara bunga */
 .bouquet-sparkle.g4 { right: 40px; bottom: 8px; font-size: 20px; animation-delay: 0.4s; }
 .bouquet-sparkle.g5 { left: 46%;  top: 8px;    font-size: 16px; animation-delay: 2s; }
@@ -1999,7 +2011,7 @@ body::after {
     left: 50%;
     bottom: -6px;
     transform: translateX(-50%);
-    width: 160px;
+    width: 190px;
     height: 14px;
     border-radius: 50%;
     background: radial-gradient(ellipse at 50% 50%, rgba(190, 70, 120, 0.35), transparent 70%);
@@ -2028,22 +2040,61 @@ body::after {
     50%      { transform: translateX(-50%) scale(1.25); }
 }
 
-/* vas makin cantik: kilau putih + gradasi pink lebih dalam */
+/* vas/ember makin cantik: corak halus + seperti ember sungguhan (mulut terbuka, ada air) */
 .bucket {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 92px;
     background:
+        repeating-linear-gradient(90deg,
+            rgba(255, 255, 255, 0.16) 0 9px,
+            rgba(255, 255, 255, 0) 9px 18px),
         radial-gradient(circle at 28% 16%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 42%),
         linear-gradient(180deg, #ffe9f2, #ffd0e2 55%, #ffafcd);
     border: 2.5px solid #ff7fa8;
+    border-radius: 12px 12px 46px 46px;
     box-shadow:
         inset 0 -12px 0 rgba(255, 110, 160, 0.22),
         inset 0 4px 6px rgba(255, 255, 255, 0.85),
         0 14px 22px rgba(0, 0, 0, 0.14);
 }
 
-.bucket-highlight {
-    width: 100px;
+/* mulut ember yang terbuka (bibir atasan sedikit lebih lebar) */
+.bucket::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: -7px;
+    right: -7px;
+    height: 18px;
+    border-radius: 50%/100% 100% 0 0;
+    background: linear-gradient(180deg, #ffd6e6, #ff9fc4);
+    border: 2.5px solid #ff7fa8;
+    box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.75);
+    z-index: 1;
+}
+
+/* permukaan air di dalam ember (bunga berdiri di air) */
+.bucket::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    right: 10px;
     height: 7px;
-    bottom: 22px;
+    border-radius: 0 0 50% 50%;
+    background: linear-gradient(180deg, rgba(150, 205, 255, 0.7), rgba(130, 190, 255, 0.35));
+    box-shadow: 0 2px 0 rgba(120, 180, 255, 0.5);
+    z-index: 2;
+}
+
+.bucket-highlight {
+    width: 106px;
+    height: 7px;
+    bottom: 24px;
     background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0),
