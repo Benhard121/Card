@@ -1,17 +1,29 @@
 const message = `Hallo sayang 💗
 
-Aku cuma mau bilang,
-terima kasih sudah hadir.
+Ada satu hal yang selalu
+mengganggu pikiranku akhir-akhir ini ...
 
-Semoga hari-harimu selalu dipenuhi
-hal-hal baik, senyum yang tulus,
-dan orang-orang yang menyayangimu.
+Saat aku memandangmu,
+aku melihat orang yang paling berharga
+di seluruh dunia ini.
 
-Jangan lupa jaga diri
-dan tetap jadi versi terbaik dari dirimu.
+Senyummu itu seperti cahaya,
+mampu menerangi hari-hariku
+yang paling gelap sekalipun.
 
-Kamu berharga,
-lebih dari yang kamu kira. 💕`;
+Setiap detik bersamamu
+terasa seperti sebuah hadiah,
+sebuah mimpi yang jadi nyata.
+
+Aku nggak akan pernah bosan
+menyayangimu, sayang.
+
+Jaga dirimu, karena kamu itu
+berharga — dan aku mau selalu ada
+di sampingmu, di suka maupun duka.
+
+Kamu istimewa, kamu sempurna,
+di mataku, kamu segalanya. 💕`;
 
 
 const stageEnvelope =
