@@ -854,3 +854,158 @@ body::before {
     0%   { background-position: 0% 50%; }
     100% { background-position: 180% 50%; }
 }
+
+/* ==================================================
+   HALAMAN BONEKA (SURPRISE)
+================================================== */
+
+.surprise-card {
+    width: min(520px, 92vw);
+    border-radius: 30px;
+    background: linear-gradient(160deg, #ffffff, #ffe4ef);
+    box-shadow: 0 24px 60px rgba(74, 74, 74, 0.15);
+    text-align: center;
+    padding: 40px 30px 30px;
+    animation: popIn 0.65s ease both;
+}
+
+.surprise {
+    position: relative;
+    height: 240px;
+    margin-bottom: 10px;
+}
+
+.surprise-heart {
+    position: absolute;
+    font-size: 26px;
+    animation: heartPop 2.6s ease-in-out infinite;
+}
+
+.surprise-heart.h1 {
+    top: 6%;
+    left: 14%;
+    animation-delay: 0s;
+}
+
+.surprise-heart.h2 {
+    top: 14%;
+    right: 12%;
+    animation-delay: 0.6s;
+}
+
+.surprise-heart.h3 {
+    bottom: 10%;
+    left: 20%;
+    animation-delay: 1.2s;
+}
+
+.surprise-heart.h4 {
+    bottom: 4%;
+    right: 18%;
+    animation-delay: 1.8s;
+}
+
+@keyframes heartPop {
+    0%, 100% {
+        transform: scale(0.5);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.3) translateY(-10px);
+        opacity: 1;
+    }
+}
+
+.boneka-wrap {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    width: 190px;
+    height: 200px;
+}
+
+.halo {
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 170, 210, 0.4),
+        rgba(255, 170, 210, 0) 70%
+    );
+    animation: haloPulse 2.4s ease-in-out infinite;
+}
+
+.boneka {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 150px;
+    line-height: 1;
+    animation: bearDance 2.4s ease-in-out infinite;
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
+}
+
+.bow {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(-10deg);
+    font-size: 30px;
+    z-index: 3;
+    animation: bowSway 2.4s ease-in-out infinite;
+}
+
+@keyframes bearDance {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(0deg) translateY(-14px);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(8deg) scale(1.06);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(-4deg) translateY(-8px);
+    }
+}
+
+@keyframes bowSway {
+    0%, 100% {
+        transform: translate(-50%, 0) rotate(-16deg);
+    }
+    50% {
+        transform: translate(-50%, 0) rotate(10deg);
+    }
+}
+
+@keyframes haloPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.22);
+        opacity: 0.9;
+    }
+}
+
+.surprise-title {
+    font-family: var(--font-display);
+    color: var(--pink-dark);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 16px;
+    text-shadow: 0 0 14px rgba(255, 122, 162, 0.35);
+}
+
+.surprise-card .message {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.surprise-card .replay-btn {
+    margin-top: 24px;
+}

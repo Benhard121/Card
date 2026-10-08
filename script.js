@@ -39,6 +39,16 @@ const replay =
         "replay"
     );
 
+const stageSurprise =
+    document.getElementById(
+        "stageSurprise"
+    );
+
+const backBtn =
+    document.getElementById(
+        "back"
+    );
+
 const typedText =
     document.getElementById(
         "typedText"
@@ -64,6 +74,10 @@ function showEnvelope() {
         .add("active");
 
     stageLetter
+        .classList
+        .remove("active");
+
+    stageSurprise
         .classList
         .remove("active");
 
@@ -136,6 +150,20 @@ function openMessage() {
 }
 
 
+function openSurprise() {
+
+    stageLetter
+        .classList
+        .remove("active");
+
+    stageSurprise
+        .classList
+        .add("active");
+
+    burstConfetti();
+}
+
+
 openEnvelope.addEventListener(
     "click",
     openMessage
@@ -170,6 +198,11 @@ closeLetter.addEventListener(
 );
 
 replay.addEventListener(
+    "click",
+    openSurprise
+);
+
+backBtn.addEventListener(
     "click",
     showEnvelope
 );
