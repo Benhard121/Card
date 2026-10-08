@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spesial Buat Kamu</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background particles -->
+    <div id="particles"></div>
+
+    <!-- HALAMAN AMPL0P -->
+    <main id="stageEnvelope" class="stage active">
+
+        <div
+            class="envelope-wrapper"
+            id="openEnvelope"
+            role="button"
+            tabindex="0"
+        >
+
+            <div class="envelope-text">
+                Klik untuk membuka 💌
+            </div>
+
+            <div class="envelope">
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-body"></div>
+
+                <div class="heart">
+                    ♥
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- HALAMAN PESAN -->
+    <main id="stageLetter" class="stage">
+
+        <section class="letter-card">
+
+            <button
+                id="closeLetter"
+                class="close-btn"
+                aria-label="Tutup"
+            >
+                ×
+            </button>
+
+            <div class="letter-icon">
+                💗
+            </div>
+
+            <h1>
+                Spesial Buat Kamu
+            </h1>
+
+            <p
+                id="typedText"
+                class="message"
+            ></p>
+
+            <div class="signature">
+                — seseorang yang memikirkanmu ♡
+            </div>
+
+            <button
+                id="replay"
+                class="replay-btn"
+            >
+                Buka Lagi 💌
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
