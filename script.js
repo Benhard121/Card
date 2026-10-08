@@ -1,4 +1,6 @@
-const message = `Hallo, Ara 💗
+const message = `
+
+allo, Ara 💗
 
 I just want to say,
 may your days always be filled with good things,
@@ -9,21 +11,16 @@ don't forget to rest.
 You don't have to be strong all the time.
 Take care of yourself, and don't forget to be happy.
 
-Aku nggak tahu apa yang akan terjadi ke depannya,
-tapi diam-diam aku berharap
-semoga suatu saat kamu mau memberiku kesempatan
-untuk mengenalmu lebih dekat.
+I don't know what the future holds,
+but secretly, I hope that someday
+you'll give me the chance to get to know you better.
 
-Nggak perlu terburu-buru,
-aku cuma ingin hadir sebagai seseorang
-yang bisa membuat harimu sedikit lebih baik.
-
-Apa pun itu, semoga kamu selalu menemukan
-hal-hal yang membuatmu tersenyum.
+Whatever it is, I hope you always find
+things that make you smile.
 
 Take care, Ara. You deserve all the good things. 💕
 
-— seseorang yang diam-diam berharap bisa menjadi bagian dari ceritamu ♡`;
+— someone who secretly hopes to be part of your story ♡`;
 
 
 const stageEnvelope =
