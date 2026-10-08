@@ -19,3 +19,9 @@ Ukuran bebas (tegak/landscape) — nanti otomatis dirapikan.
 Kalimat di bawah tiap foto bisa diubah di index.html
 (cari: class="photo-cap").
 Kalau mau pakai nama file lain, sesuaikan juga di index.html.
+
+FITUR INTERAKTIF:
+- Arahkan kursor ke foto -> foto membesar (zoom) dengan kilau halus.
+- Klik foto -> terbuka lebih besar (lightbox) dengan tombol ‹ ›, tutup ×,
+  nomor (1/6), dan caption; bisa pakai tombol panah keyboard / Esc.
+  (Semua di index.html, style.css, script.js)
