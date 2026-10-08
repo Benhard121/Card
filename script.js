@@ -1,6 +1,6 @@
 const message = `
 
-allo, Ara 💗
+Hello, Ara 
 
 I just want to say,
 may your days always be filled with good things,
@@ -358,6 +358,183 @@ function createPetal() {
 for (let i = 0; i < 26; i++) {
     createPetal();
 }
+
+
+/* ========================================
+   LIGHTBOX FOTO ARA (klik untuk perbesar)
+======================================== */
+
+const lightbox =
+    document.getElementById(
+        "lightbox"
+    );
+
+const lbImg =
+    document.getElementById(
+        "lbImg"
+    );
+
+const lbCap =
+    document.getElementById(
+        "lbCap"
+    );
+
+const lbCounter =
+    document.getElementById(
+        "lbCounter"
+    );
+
+const lbClose =
+    document.getElementById(
+        "lbClose"
+    );
+
+const lbPrev =
+    document.getElementById(
+        "lbPrev"
+    );
+
+const lbNext =
+    document.getElementById(
+        "lbNext"
+    );
+
+const photoFrames =
+    Array.from(
+        document.querySelectorAll(
+            "#stageGift .photo"
+        )
+    );
+
+const photoSrcs =
+    photoFrames.map(
+        (frame) =>
+            frame
+                .querySelector("img")
+                .getAttribute("src")
+    );
+
+const photoCaps =
+    photoFrames.map(
+        (frame) =>
+            frame
+                .querySelector(".photo-cap")
+                .textContent
+    );
+
+let lbIndex = 0;
+
+function updateLightbox() {
+
+    lbImg.src = photoSrcs[lbIndex];
+    lbImg.alt = photoCaps[lbIndex];
+    lbCap.textContent = photoCaps[lbIndex];
+    lbCounter.textContent =
+        `${lbIndex + 1} / ${photoSrcs.length}`;
+}
+
+function openLightbox(index) {
+
+    lbIndex =
+        (index + photoSrcs.length) %
+        photoSrcs.length;
+
+    updateLightbox();
+
+    lightbox.classList.add("open");
+
+    document.body.classList.add("lb-open");
+}
+
+function closeLightbox() {
+
+    lightbox.classList.remove("open");
+
+    document.body.classList.remove("lb-open");
+}
+
+photoFrames.forEach(
+    (frame, index) => {
+
+        const opener =
+            frame.querySelector(".photo-img") || frame;
+
+        opener.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+
+                openLightbox(index);
+            }
+        );
+    }
+);
+
+lbClose &&
+    lbClose.addEventListener(
+        "click",
+        closeLightbox
+    );
+
+lbPrev &&
+    lbPrev.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            openLightbox(lbIndex - 1);
+        }
+    );
+
+lbNext &&
+    lbNext.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            openLightbox(lbIndex + 1);
+        }
+    );
+
+lightbox &&
+    lightbox.addEventListener(
+        "click",
+        (event) => {
+
+            if (event.target === lightbox) {
+
+                closeLightbox();
+            }
+        }
+    );
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            !lightbox.classList.contains("open")
+        ) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+        }
+        else if (event.key === "ArrowLeft") {
+
+            openLightbox(lbIndex - 1);
+        }
+        else if (event.key === "ArrowRight") {
+
+            openLightbox(lbIndex + 1);
+        }
+    }
+);
 
 
 /* ========================================
