@@ -1,29 +1,29 @@
-const message = `Hallo sayang 💗
+const message = `Hallo, Ara 💗
 
-Ada satu hal yang selalu
-mengganggu pikiranku akhir-akhir ini ...
+Aku cuma mau bilang,
+semoga hari-harimu selalu dipenuhi hal-hal baik,
+senyum yang tulus, dan alasan untuk bahagia.
 
-Saat aku memandangmu,
-aku melihat orang yang paling berharga
-di seluruh dunia ini.
+Kalau suatu hari kamu merasa lelah,
+jangan lupa istirahat, ya.
+Kamu nggak harus selalu kuat setiap waktu.
+Tetap jaga diri dan jangan lupa bahagia.
 
-Senyummu itu seperti cahaya,
-mampu menerangi hari-hariku
-yang paling gelap sekalipun.
+Aku nggak tahu apa yang akan terjadi ke depannya,
+tapi diam-diam aku berharap
+semoga suatu saat kamu mau memberiku kesempatan
+untuk mengenalmu lebih dekat.
 
-Setiap detik bersamamu
-terasa seperti sebuah hadiah,
-sebuah mimpi yang jadi nyata.
+Nggak perlu terburu-buru,
+aku cuma ingin hadir sebagai seseorang
+yang bisa membuat harimu sedikit lebih baik.
 
-Aku nggak akan pernah bosan
-menyayangimu, sayang.
+Apa pun itu, semoga kamu selalu menemukan
+hal-hal yang membuatmu tersenyum.
 
-Jaga dirimu, karena kamu itu
-berharga — dan aku mau selalu ada
-di sampingmu, di suka maupun duka.
+Take care, Ara. You deserve all the good things. 💕
 
-Kamu istimewa, kamu sempurna,
-di mataku, kamu segalanya. 💕`;
+— seseorang yang diam-diam berharap bisa menjadi bagian dari ceritamu ♡`;
 
 
 const stageEnvelope =
